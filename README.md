@@ -1,16 +1,15 @@
 # Visual Regresion Test
 
 ## Why? 
-This project is intendent  
-TODO: Finish this paragraph and add link to post.
-
-TODO: Define credits to starter pack.
-TODO: Define project structure.
-TODO: Define project License.
-
-## Dependencies table
+This project contains all the code for the post.
 
 
-## Credits
-https://github.com/L33T-KR3W/push-dirgit 
-yarn build; push-dir --dir=dist --branch=gh-pages --cleanup
+Relevant Links:
+* Starter pack: 
+* Hosting: Firebase, the build is hosted at: https://visual-regresion-testing.firebaseapp.com/
+* Post link: TODO: Finish this paragraph and add link to post.
+
+## TODO: Define project structure
+
+
+## TODO: Define project License
