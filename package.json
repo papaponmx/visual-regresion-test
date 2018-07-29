@@ -54,6 +54,7 @@
     "parcel-bundler": "^1.9.2",
     "prettier": "^1.13.5",
     "prettier-stylelint": "^0.4.2",
+    "push-dir": "^0.4.1",
     "react-test-renderer": "^16.4.1",
     "stylelint": "^9.3.0",
     "stylelint-config-standard": "^18.2.0",
