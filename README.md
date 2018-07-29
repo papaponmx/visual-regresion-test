@@ -13,4 +13,4 @@ TODO: Define project License.
 
 ## Credits
 https://github.com/L33T-KR3W/push-dirgit 
-npm run build; push-dir --dir=dist --branch=gh-pages --cleanup
+yarn build; push-dir --dir=dist --branch=gh-pages --cleanup
