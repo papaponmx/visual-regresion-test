@@ -12,6 +12,5 @@ TODO: Define project License.
 
 
 ## Credits
-Dependencies
-
-https://codeburst.io/deploy-react-to-github-pages-to-create-an-amazing-website-42d8b09cd4d
+https://github.com/L33T-KR3W/push-dirgit 
+npm run build; push-dir --dir=dist --branch=gh-pages --cleanup
