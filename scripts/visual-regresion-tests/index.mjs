@@ -5,5 +5,3 @@ import signale from 'signale';
 // import LOCATORS from './locators'; // A JSON with all the CSS locators we need.
 import config from './config';
 
-
-console.log(config);
