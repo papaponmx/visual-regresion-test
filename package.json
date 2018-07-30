@@ -13,6 +13,7 @@
     "lint:style": "stylelint './src/**/*.js' --formatter verbose; exit 0",
     "lint:js": "eslint './src/**/*.{js,jsx,json,md}'; exit 0",
     "lint": "npm run lint:style && npm run lint:js",
+    "vrt": "node --experimental-modules ./scripts/visual-regresion-tests/index.mjs",
     "test": "jest; exit 0",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -54,7 +55,9 @@
     "parcel-bundler": "^1.9.2",
     "prettier": "^1.13.5",
     "prettier-stylelint": "^0.4.2",
+    "puppeteer": "^1.6.1",
     "react-test-renderer": "^16.4.1",
+    "signale": "^1.2.1",
     "stylelint": "^9.3.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-config-styled-components": "^0.1.1",
