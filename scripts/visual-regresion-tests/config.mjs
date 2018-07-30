@@ -1,4 +1,4 @@
-module.exports.testconfiguration = {
+const config = {
     browser:{
         clientName: 'chrome',
         viewPort: {
@@ -21,3 +21,5 @@ module.exports.testconfiguration = {
         stagging: 'https://visual-regresion-testing.firebaseapp.com/',
     },
 }
+
+export default config;
