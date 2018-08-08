@@ -1,10 +1,7 @@
 import signale from 'signale';
 import puppeteer from 'puppeteer'
+import generateDateString from './generateDateString.mjs'
 
-const generateDateString = () => {
-  const d = new Date()
-  return `${d.getDate()}_${d.getHours()}h${d.getMinutes()}`
-}
 
 export const getPageScreenshot = async (url, env, viewportConfig) => {
   const { height, width } = viewportConfig;
@@ -19,13 +16,16 @@ export const getPageScreenshot = async (url, env, viewportConfig) => {
   await page.setViewport({ width, height })
   await signale.success('Opening browser...')
   await signale.success('Navigating to the site ');
-  await page.goto(url);
+  await page.goto(url)
+        .catch(error => signale.error('Could not reach the site ', url));
   await page.waitForSelector(selector)
     .then(async () => {
       signale.success('Form was submitted successfully'); // This is a fancy console.log()
       await page.screenshot({ path: `./scripts/visual-regresion-tests/images/${env}_${dateString}.png` });
       browser.close();
     })
+    .catch(error => signale.error('Selector is not available', url));
+
 };
 
 

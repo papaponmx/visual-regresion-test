@@ -24,5 +24,5 @@ const runProductionTest = async (device = 'default', config) => {
 }
 
 runLocalTest('mobile', config);
-// runProductionTest('mobile', config);
+runProductionTest('mobile', config);
 // compareImages();
