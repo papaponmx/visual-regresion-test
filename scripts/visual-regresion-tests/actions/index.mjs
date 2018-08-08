@@ -1,22 +1,34 @@
 import signale from 'signale';
+import puppeteer from 'puppeteer'
 
-export const initializeBrowser = async(puppeteer, viewport) => {
+const generateDateString = () => {
+  const d = new Date()
+  return `${d.getDate()}_${d.getHours()}h${d.getMinutes()}`
+}
+
+const initializeBrowser = async(viewport) => {
   const { height, width } = viewport;
+
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   await page.setViewport({ width, height });
 
-  signale.debug('Opening browser...');
-
+  await signale.success('Opening browser...')
+  return page = page;
 };
 
-export const getPageScreenshot = async (page, url, selector, env) => {
-  const d = new Date();
-  const dateString = `${d.getDate()}_${d.getHours()}h${d.getMinutes()}`;
+export const getPageScreenshot = async (url, env, viewportConfig) => {
+  let page;
+  const dateString = generateDateString();
+  const selector = 'h1' // This could be any valid CSS Selector
+
+  await signale.success('Initializing browser')
+  await initializeBrowser(viewportConfig);
 
   // Go to the website;
-  await signale.watch('Navigating to the site');
+  await signale.watch('Navigating to the site ');
+
   await page.goto(url);
 
   await page.waitForSelector(selector)
@@ -31,3 +43,6 @@ export const getPageScreenshot = async (page, url, selector, env) => {
 export const compareScreenShots = async () => {
 // TODO: Finish this
 };
+
+
+
