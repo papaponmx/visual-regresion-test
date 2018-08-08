@@ -17,7 +17,9 @@ export const getPageScreenshot = async (url, env, viewportConfig) => {
   await signale.success('Opening browser...')
   await signale.success('Navigating to the site ');
   await page.goto(url)
-        .catch(error => signale.error('Could not reach the site ', url));
+        .catch(error => {
+          signale.error('Could not reach the site ', url)});
+          process.exit(1);
   await page.waitForSelector(selector)
     .then(async () => {
       signale.success('Form was submitted successfully'); // This is a fancy console.log()
