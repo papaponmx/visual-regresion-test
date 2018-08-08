@@ -23,7 +23,7 @@ export const getPageScreenshot = async (url, env, viewportConfig) => {
   await page.waitForSelector(selector)
     .then(async () => {
       signale.success('Form was submitted successfully'); // This is a fancy console.log()
-      await page.screenshot({ path: `${env}_${dateString}.png` });
+      await page.screenshot({ path: `./scripts/visual-regresion-tests/images/${env}_${dateString}.png` });
       browser.close();
     })
 };
