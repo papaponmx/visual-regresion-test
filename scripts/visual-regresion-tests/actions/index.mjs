@@ -6,31 +6,20 @@ const generateDateString = () => {
   return `${d.getDate()}_${d.getHours()}h${d.getMinutes()}`
 }
 
-const initializeBrowser = async(viewport) => {
-  const { height, width } = viewport;
-
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-
-  await page.setViewport({ width, height });
-
-  await signale.success('Opening browser...')
-  return page = page;
-};
-
 export const getPageScreenshot = async (url, env, viewportConfig) => {
-  let page;
+  const { height, width } = viewportConfig;
   const dateString = generateDateString();
   const selector = 'h1' // This could be any valid CSS Selector
 
   await signale.success('Initializing browser')
-  await initializeBrowser(viewportConfig);
 
-  // Go to the website;
-  await signale.watch('Navigating to the site ');
+  const browser = await puppeteer.launch()
+  const page = await browser.newPage()
 
+  await page.setViewport({ width, height })
+  await signale.success('Opening browser...')
+  await signale.success('Navigating to the site ');
   await page.goto(url);
-
   await page.waitForSelector(selector)
     .then(async () => {
       signale.success('Form was submitted successfully'); // This is a fancy console.log()
