@@ -12,10 +12,10 @@ const runLocalTest = (params) => {
 }
 
 const runProductionTest = async (device = 'default', config) => {
-  const { env } = config;
+  const { env, viewport } = config;
   // await signale.success(`Running production on ${device}`)
   await signale.success(`Running production test on ${device} on a ${config.browser.clientName} viewport`);
-  await getPageScreenshot(env.stagging, 'Production', config.viewPort[device]);
+  await getPageScreenshot(env.stagging, 'Production', config.viewport[device]);
   await signale.success('Files are now created');
 }
 
