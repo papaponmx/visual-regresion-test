@@ -28,10 +28,3 @@ export const getPageScreenshot = async (url, env, viewportConfig) => {
 
 };
 
-
-export const compareScreenShots = async () => {
-// TODO: Finish this
-};
-
-
-
