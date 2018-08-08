@@ -17,7 +17,7 @@ const config = {
     }
   },
   env: {
-    local: 'localhost:3000',
+    local: 'http://localhost:3000',
     stagging: 'https://visual-regresion-testing.firebaseapp.com/'
   }
 }

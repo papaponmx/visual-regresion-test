@@ -6,8 +6,12 @@ import config from './config';
 import { getPageScreenshot } from './actions/index.mjs';
 
 
-const runLocalTest = (params) => {
-
+const runLocalTest = async (device = 'default', config) => {
+  const { env, viewport } = config;
+  // await signale.success(`Running production on ${device}`)
+  await signale.success(`Running production test on ${device} on a ${config.browser.clientName} viewport`);
+  await getPageScreenshot(env.local, 'Test', config.viewport[device]);
+  await signale.success('Files are now created');
 
 }
 
@@ -19,6 +23,6 @@ const runProductionTest = async (device = 'default', config) => {
   await signale.success('Files are now created');
 }
 
-runProductionTest('mobile', config);
-// runProductionTest();
+runLocalTest('mobile', config);
+// runProductionTest('mobile', config);
 // compareImages();
