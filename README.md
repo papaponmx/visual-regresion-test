@@ -9,6 +9,11 @@ Relevant Links:
 * Hosting: Firebase, the build is hosted at: https://visual-regresion-testing.firebaseapp.com/
 * Post link: TODO: Finish this paragraph and add link to post.
 
+## Run Project in 3 steps
+`yarn`
+`yarn start`
+`yarn vrt`
+
 ## TODO: Define project structure
 
 
