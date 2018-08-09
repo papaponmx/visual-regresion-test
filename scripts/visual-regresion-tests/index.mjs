@@ -3,8 +3,8 @@ import config from './config';
 import getPageScreenshot from './actions/index.mjs';
 import compareScreenshots from './actions/compareScreenShots.mjs'
 
-const testImage = '';
-const productionImage = '';
+const testImage = 'Production_7_21h_41.png';
+const productionImage = 'Test_7_21h_46.png'
 
 const runLocalTest = async (device = 'default', config) => {
   const { env, viewport } = config;
@@ -23,6 +23,11 @@ const runProductionTest = async (device = 'default', config) => {
   await signale.success('Files are now created');
 }
 
-runLocalTest('mobile', config);
-runProductionTest('mobile', config);
-compareImages(testImage, productionImage);
+
+const runItAll = async (config) => {
+  // await runLocalTest('mobile', config);
+  // await runProductionTest('mobile', config);
+  await compareScreenshots(testImage, productionImage, config.viewport.default);
+}
+
+runItAll(config)

@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer'
 import generateDateString from './generateDateString.mjs'
 
 
-export const getPageScreenshot = async (url, env, viewportConfig) => {
+const getPageScreenshot = async (url, env, viewportConfig) => {
   const { height, width } = viewportConfig;
   const dateString = generateDateString();
   const selector = 'h1' // This could be any valid CSS Selector
@@ -19,7 +19,7 @@ export const getPageScreenshot = async (url, env, viewportConfig) => {
   await page.goto(url)
         .catch(error => {
           signale.error('Could not reach the site ', url)});
-          process.exit(1);
+          // process.exit(1);
   await page.waitForSelector(selector)
     .then(async () => {
       signale.success('Form was submitted successfully'); // This is a fancy console.log()
@@ -29,4 +29,6 @@ export const getPageScreenshot = async (url, env, viewportConfig) => {
     .catch(error => signale.error('Selector is not available', url));
 
 };
+
+export default getPageScreenshot;
 

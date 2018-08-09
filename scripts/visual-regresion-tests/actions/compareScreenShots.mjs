@@ -1,25 +1,38 @@
-import fs from 'fs';
-import PNG from 'pngjs'
+import fs from 'fs'
+// import { promisify } from 'util'
 import pixelmatch from 'pixelmatch'
+import {PNG} from 'pngjs'
+import colors from 'colors';
 
- const compareScreenShots =  (imgA, imgB) => {
-  // TODO: Finish this, note that you need 2 images as params
-   const img1 = fs.createReadStream('img1.png').pipe(new PNG()).on('parsed', doneReading),
-     img2 = fs.createReadStream('img2.png').pipe(new PNG()).on('parsed', doneReading),
-     filesRead = 0;
+const imageFromFile = filename =>
+  new Promise(resolve => {
+    const img = fs
+      .createReadStream(filename)
+      .pipe(new PNG())
+      .on('parsed', () => {
+        resolve(img.data);
+      });
+  });
 
-   const doneReading() {
-     if (++filesRead < 2) return;
-     const diff = new PNG({ width: img1.width, height: img1.height });
+const compareScreenShots = async (FILENAME_A, FILENAME_B, viewportConfig) => {
+  const IMAGES_FOLDER_PATH = './visual-regresion-tests/images/'
+  const { height, width } = viewportConfig;
 
-     pixelmatch(img1.data, img2.data, diff.data, img1.width, img1.height, { threshold: 0.1 });
+  console.log(FILENAME_A.green)
+  console.log(FILENAME_B.green)
+  const newLayout = await imageFromFile(IMAGES_FOLDER_PATH + FILENAME_A); // './automation/img/local_host_layout.png'
+  const oldLayout = await imageFromFile(IMAGES_FOLDER_PATH + FILENAME_B); // './automation/img / local_host_layout.png'
+  const diff = new PNG(viewportConfig);
+  const diffPixels = pixelmatch(newLayout, oldLayout, diff.data, width, height, {
+    threshold: 0,
+  });
 
-     diff.pack().pipe(fs.createWriteStream('diff.png'));
-   }
-
+  if (diffPixels === 0) {
+    console.log('Success! No difference in rendering'.green);
+  } else {
+    console.log(`Uh-oh! There are ${diffPixels} different pixels in new render!`.bgRed);
+  }
 };
 
 
 export default compareScreenShots;
-
-
