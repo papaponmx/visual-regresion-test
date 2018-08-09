@@ -1,10 +1,10 @@
 import signale from 'signale';
-// const puppeteer = require('puppeteer') // High level API to interact with headless Chrome
-// const signale = require('signale')
-// import LOCATORS from './locators'; // A JSON with all the CSS locators we need.
 import config from './config';
-import { getPageScreenshot } from './actions/index.mjs';
+import getPageScreenshot from './actions/index.mjs';
+import compareScreenshots from './actions/compareScreenShots.mjs'
 
+const testImage = '';
+const productionImage = '';
 
 const runLocalTest = async (device = 'default', config) => {
   const { env, viewport } = config;
@@ -25,4 +25,4 @@ const runProductionTest = async (device = 'default', config) => {
 
 runLocalTest('mobile', config);
 runProductionTest('mobile', config);
-// compareImages();
+compareImages(testImage, productionImage);
