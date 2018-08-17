@@ -1,6 +1,6 @@
 const config = {
   browser: {
-    clientName: 'chrome',
+    clientName: 'chrome'
   },
   viewport: {
     default: {
@@ -22,4 +22,4 @@ const config = {
   }
 }
 
-export default config
+module.exports.config = config

@@ -13,7 +13,7 @@
     "lint:style": "stylelint './src/**/*.js' --formatter verbose; exit 0",
     "lint:js": "eslint './src/**/*.{js,jsx,json,md}'; exit 0",
     "lint": "npm run lint:style && npm run lint:js",
-    "vrt": "node --experimental-modules ./scripts/visual-regresion-tests/index.mjs",
+    "vrt": "node ./scripts/visual-regresion-tests/index.js",
     "test": "jest; exit 0",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
