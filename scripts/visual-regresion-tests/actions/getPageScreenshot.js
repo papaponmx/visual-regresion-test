@@ -3,7 +3,6 @@ const puppeteer = require('puppeteer')
 
 const getPageScreenshot = async (url, env, viewportConfig, dateString) => {
   const { height, width } = viewportConfig
-  const selector = 'h1' // This could be any valid CSS Selector
 
   await signale.success('Initializing browser')
 
@@ -18,11 +17,11 @@ const getPageScreenshot = async (url, env, viewportConfig, dateString) => {
   })
   // process.exit(1);
   await page
-    .waitForSelector(selector)
+    .waitForSelector('h1')
     .then(async () => {
       signale.success('Selector is on the screen...') // This is a fancy console.log()
       await page.screenshot({
-        path: `./scripts/visual-regresion-tests/images/${env}_${dateString}.png`
+        path: `scripts/visual-regresion-tests/images/${env + dateString}.png`
       })
       browser.close()
     })

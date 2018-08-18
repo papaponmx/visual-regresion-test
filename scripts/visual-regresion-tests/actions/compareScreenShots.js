@@ -1,8 +1,8 @@
 const fs = require('fs')
-const pixelmatch = require('pixelmatch')
-const { PNG } = require('pngjs/')
 const colors = require('colors')
 const signale = require('signale')
+const pixelmatch = require('pixelmatch')
+const { PNG } = require('pngjs/')
 
 const imageFromFile = filename =>
   new Promise(resolve => {
@@ -18,8 +18,8 @@ const compareScreenShots = async (FILENAME_A, FILENAME_B, viewportConfig) => {
   const IMAGES_FOLDER_PATH = './scripts/visual-regresion-tests/images/'
   const { height, width } = viewportConfig
 
-  const newLayout = await imageFromFile(IMAGES_FOLDER_PATH + FILENAME_A) // './automation/images/local_host_layout.png'
-  const oldLayout = await imageFromFile(IMAGES_FOLDER_PATH + FILENAME_B) // './automation/images/local_host_layout.png'
+  const newLayout = await imageFromFile(IMAGES_FOLDER_PATH + FILENAME_A + '.png') // './automation/images/local_host_layout.png'
+  const oldLayout = await imageFromFile(IMAGES_FOLDER_PATH + FILENAME_B + '.png') // './automation/images/local_host_layout.png'
 
   const diff = await new PNG(viewportConfig)
   const diffPixels = await pixelmatch(
@@ -42,4 +42,4 @@ const compareScreenShots = async (FILENAME_A, FILENAME_B, viewportConfig) => {
   }
 }
 
-module.exports.conmpareScreenShots = compareScreenShots
+module.exports.compareScreenShots = compareScreenShots;

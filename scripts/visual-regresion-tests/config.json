@@ -18,7 +18,7 @@
   },
   "env": {
     "local": "http://localhost:3000",
-    "stagging": "https://visual-regresion-testing.firebaseapp.com/"
+    "stagging": "https://visual-regresion-testing.firebaseapp.com"
   }
 }
 
