@@ -5,9 +5,6 @@ const { generateDateString }= require('./actions/generateDateString.js');
 const { getPageScreenshot } = require('./actions/getPageScreenshot.js');
 const { compareScreenShots } = require('./actions/compareScreenShots.js');
 
-// const testImage = 'Production_7_21h41.png'
-// const productionImage = 'Test_7_21h46.png'
-
 let testImage;
 let productionImage;
 
