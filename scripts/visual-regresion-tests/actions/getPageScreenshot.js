@@ -1,10 +1,8 @@
 const signale = require('signale')
 const puppeteer = require('puppeteer')
-const { generateDateString }= require('./generateDateString.js');
 
-const getPageScreenshot = async (url, env, viewportConfig) => {
+const getPageScreenshot = async (url, env, viewportConfig, dateString) => {
   const { height, width } = viewportConfig
-  const dateString = generateDateString()
   const selector = 'h1' // This could be any valid CSS Selector
 
   await signale.success('Initializing browser')
@@ -31,4 +29,4 @@ const getPageScreenshot = async (url, env, viewportConfig) => {
     .catch(error => signale.error('Selector is not available', url))
 }
 
-module.exports.getPageScreenShot = getPageScreenshot
+module.exports.getPageScreenshot = getPageScreenshot

@@ -18,11 +18,9 @@ const compareScreenShots = async (FILENAME_A, FILENAME_B, viewportConfig) => {
   const IMAGES_FOLDER_PATH = './scripts/visual-regresion-tests/images/'
   const { height, width } = viewportConfig
 
-  console.log(IMAGES_FOLDER_PATH + FILENAME_A.green);
-  console.log(process.cwd())
   const newLayout = await imageFromFile(IMAGES_FOLDER_PATH + FILENAME_A) // './automation/images/local_host_layout.png'
   const oldLayout = await imageFromFile(IMAGES_FOLDER_PATH + FILENAME_B) // './automation/images/local_host_layout.png'
-  signale.success(viewportConfig.green)
+
   const diff = await new PNG(viewportConfig)
   const diffPixels = await pixelmatch(
     newLayout,
