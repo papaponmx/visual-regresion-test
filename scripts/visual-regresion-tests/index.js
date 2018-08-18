@@ -1,7 +1,7 @@
 const signale = require('signale')
-// const config = require('./config')
-const getPageScreenshot = require('./actions/index.js')
-const compareScreenshots = require('./actions/compareScreenShots.js')
+const config = require('./config.json')
+const { getPageScreenshot } = require('./actions/index.js');
+const { compareScreenshots } = require('./actions/compareScreenShots.js');
 
 const testImage = 'Production_7_21h41.png'
 const productionImage = 'Test_7_21h46.png'
@@ -30,13 +30,10 @@ const runProductionTest = async (device = 'default', config) => {
   await signale.success('Files are now created')
 }
 
-const runItAll = async (config = config) => {
-  await console.log(JSON.stringify(config.viewport.default, null, 2))
-  // await runLocalTest('mobile', config);
-  // await runProductionTest('mobile', config);
+const runItAll = async (config) => {
+  await runLocalTest('mobile', config);
+  await runProductionTest('mobile', config);
   await compareScreenshots(testImage, productionImage, config.viewport.default)
 }
 
-// FIXME: Something is wrong with your imports
-
-runItAll(config)
+runItAll(config);

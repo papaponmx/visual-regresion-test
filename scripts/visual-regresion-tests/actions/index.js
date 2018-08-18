@@ -1,6 +1,6 @@
 const signale = require('signale')
 const puppeteer = require('puppeteer')
-const generateDateString = require('./generateDateString.js')
+const { generateDateString }= require('./generateDateString.js');
 
 const getPageScreenshot = async (url, env, viewportConfig) => {
   const { height, width } = viewportConfig
@@ -22,7 +22,7 @@ const getPageScreenshot = async (url, env, viewportConfig) => {
   await page
     .waitForSelector(selector)
     .then(async () => {
-      signale.success('Form was submitted successfully') // This is a fancy console.log()
+      signale.success('Selector is on the screen...') // This is a fancy console.log()
       await page.screenshot({
         path: `./scripts/visual-regresion-tests/images/${env}_${dateString}.png`
       })
