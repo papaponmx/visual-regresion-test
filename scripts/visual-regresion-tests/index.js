@@ -10,7 +10,6 @@ let productionImage;
 
 const runLocalTest = async (device = 'default', config, dateString) => {
   const { env, viewport } = config
-  // await signale.success(`Running production on ${device}`)
   await signale.success(
     `Running production test on ${device} on a ${
       config.browser.clientName
@@ -22,7 +21,6 @@ const runLocalTest = async (device = 'default', config, dateString) => {
 
 const runProductionTest = async (device = 'default', config, dateString) => {
   const { env, viewport } = config
-  // await signale.success(`Running production on ${device}`)
   await signale.success(
     `Running production test on ${device} on a ${
       config.browser.clientName

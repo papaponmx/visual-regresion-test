@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "React App",
   "main": "index.js",
+  "license" : "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development parcel ./public/index.html -p 3000 --open",
     "deploy": "yarn build && firebase deploy",
